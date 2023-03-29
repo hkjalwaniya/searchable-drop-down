@@ -12,10 +12,15 @@ li {
 
 li:hover {
     background-color:#dddddd;
+    padding: 0 10px;
 }
 
 input {
     padding: 4px 8px;
+}
+
+input:focus {
+    outline: none;
 }
 
 input:focus {
