@@ -5,25 +5,44 @@ ul {
     margin: 0;
 }
 li {
-    border-bottom: 1px solid grey;
+    text-align: left;
     cursor: pointer;
+    padding: 3px 10px;
+}
+
+li:hover {
+    background-color:#dddddd;
 }
 
 input {
-    padding: 4px;
+    padding: 4px 8px;
+}
+
+input:focus {
+    outline: none;
 }
 
 .dropdown {
-    width: 174px;
+    width: 181px;
     margin: auto;
     position: relative;
     display: inline-block;
 }
-.dropdown::before {
+.opened::before {
     position: absolute;
     content: " \005E";
     top: 2px;
-    right: 0px;
+    right: 6px;
     height: 20px;
     width: 20px;
+    cursor: pointer;
+}
+.closed::before {
+    position: absolute;
+    content: " \02C5";
+    top: 2px;
+    right: 6px;
+    height: 20px;
+    width: 20px;
+    cursor: pointer;
 }
