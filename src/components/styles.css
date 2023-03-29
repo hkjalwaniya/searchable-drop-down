@@ -5,12 +5,17 @@ ul {
     margin: 0;
 }
 li {
-    border-bottom: 1px solid grey;
+    text-align: left;
     cursor: pointer;
+    padding: 0 10px;
 }
 
 input {
     padding: 4px;
+}
+
+input:focus {
+    outline: none;
 }
 
 .dropdown {
@@ -19,11 +24,21 @@ input {
     position: relative;
     display: inline-block;
 }
-.dropdown::before {
+.opened::before {
     position: absolute;
     content: " \005E";
     top: 2px;
-    right: 0px;
+    right: 6px;
     height: 20px;
     width: 20px;
+    cursor: pointer;
+}
+.closed::before {
+    position: absolute;
+    content: " \02C5";
+    top: 2px;
+    right: 6px;
+    height: 20px;
+    width: 20px;
+    cursor: pointer;
 }

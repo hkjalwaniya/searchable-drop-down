@@ -28,12 +28,10 @@ export const SearchableDropDown = () => {
             const searchedItem = e.target.value.toLowerCase()
             return option.toLowerCase().includes(searchedItem)
         })
-        console.log('filteredList', filteredList)
         setFilteredOptions(filteredList)
     }
 
     const handleItemSelect = (option) => {
-        console.log('selected',option)
         setItem(option)
         setIsComponentVisible(false)
     }
@@ -42,20 +40,21 @@ export const SearchableDropDown = () => {
         setIsComponentVisible(true)
     }
 
-    const handleInputBlur = () => {
-        setIsComponentVisible(false)
-    }
-
     return (
-        <div className="dropdown" ref={ref}>
-            <input value={item} onChange={handleItemChange} onFocus={handleInputFocus} />
-            {
-                isComponentVisible && <ul>
-                    {filteredOptions.map(filteredOption => (
-                        <li onClick={() => handleItemSelect(filteredOption)}>{filteredOption}</li>
-                    ))}
-                </ul>
-            }
-        </div>
+            <div ref={ref} className={isComponentVisible ? 'dropdown opened' : 'dropdown closed'} >
+                <input
+                    value={item}
+                    placeholder="Select Location"
+                    onChange={handleItemChange}
+                    onFocus={handleInputFocus}
+                />
+                {
+                    isComponentVisible && <ul>
+                        {filteredOptions.map(filteredOption => (
+                            <li onClick={() => handleItemSelect(filteredOption)}>{filteredOption}</li>
+                        ))}
+                    </ul>
+                }
+            </div>
     )
 }
